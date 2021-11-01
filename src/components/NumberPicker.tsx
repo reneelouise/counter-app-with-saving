@@ -1,32 +1,80 @@
 import { useState } from "react";
 
-export default function NumberPicker(): JSX.Element {
-  const [counterValueFromCurrentRender, queueRerenderWithNewCounterValue] =
-    useState(0);
-  const [favouriteValueFromCurrentRender, queueRerenderWithNewFavouriteValue] =
-    useState(0);
+export default function EmojiPicker(): JSX.Element {
+  const [emojiFromCurrentRender, queueRerenderWithNewEmoji] = useState("");
+  const [emojiFromPreviousRender, queueRerenderWithPreviousEmoji] = useState("");
+ 
 
-  const handleAddOneToCounter = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender + 1);
-  };
 
-  const handleSubtractOneFromCounter = () => {
-    queueRerenderWithNewCounterValue(counterValueFromCurrentRender - 1);
-  };
+  const changeEmojiToClock =() => {
+    queueRerenderWithNewEmoji("⏰");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
 
-  const handleStoreCurrentCount = () => {
-    queueRerenderWithNewFavouriteValue(counterValueFromCurrentRender);
-  };
+  const changeEmojiToAngel=() => {
+    queueRerenderWithNewEmoji("😇");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+    
+
+  const changeEmojiToUnimpressed =() => {
+    queueRerenderWithNewEmoji("😒");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+
+  const changeEmojiToBed =() => {
+    queueRerenderWithNewEmoji("🛌");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+
+  const changeEmojiToSilly=() => {
+    queueRerenderWithNewEmoji("🤪");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+
+  const changeEmojiToParty =() => {
+    queueRerenderWithNewEmoji("🥳 ");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+  const changeEmojiToStarstruck =() => {
+    queueRerenderWithNewEmoji("🤩 ");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+
+  const changeEmojiToGeek =() => {
+    queueRerenderWithNewEmoji("🥸 ");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+  const changeEmojiToCool =() => {
+    queueRerenderWithNewEmoji("😎");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+
+  const changeEmojiToNerd =() => {
+    queueRerenderWithNewEmoji("🤓");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
+  const changeEmojiToHmm =() => {
+    queueRerenderWithNewEmoji("🧐");
+    queueRerenderWithPreviousEmoji(emojiFromCurrentRender);
+  }
 
   return (
     <>
-      <h1>Number picker</h1>
-      <p>Your stored number: {favouriteValueFromCurrentRender}</p>
-      <p>Counter: {counterValueFromCurrentRender}</p>
-      <button onClick={handleSubtractOneFromCounter}>-1</button>
-      <button onClick={handleAddOneToCounter}>+1</button>
-      <hr />
-      <button onClick={handleStoreCurrentCount}>Store current count</button>
+      <h1>Emoji picker</h1>
+      <p>Emoji: {emojiFromPreviousRender}, {emojiFromCurrentRender}</p>
+      <button onClick={changeEmojiToAngel}>😇</button>
+      <button onClick={changeEmojiToBed}>🛌</button>
+      <button onClick={changeEmojiToClock}>⏰</button>
+      <button onClick={changeEmojiToCool}>😎</button>
+      <button onClick={changeEmojiToGeek}>🥸</button>
+      <button onClick={changeEmojiToHmm}>🧐</button>
+      <button onClick={changeEmojiToNerd}>🤓</button>
+      <button onClick={changeEmojiToParty}>🥳</button>
+      <button onClick={changeEmojiToStarstruck}>🤩 </button>
+      <button onClick={changeEmojiToSilly}>🤪</button>
+      <button onClick={changeEmojiToUnimpressed}>😒</button>
+     
     </>
   );
 }
